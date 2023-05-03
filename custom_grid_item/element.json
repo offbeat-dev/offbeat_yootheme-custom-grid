@@ -1,0 +1,106 @@
+{
+    "@import": "./element.php",
+    "name": "custom_grid_item",
+    "title": "Custom Grid Item",
+    "width": 500,
+    "defaults": {
+        "icon_align": "left",
+        "link": "#",
+        "icon": "play"
+    },
+    "placeholder": {
+        "props": {
+            "title": "Title",
+            "meta": "meta",
+            "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+            "image": "",
+            "link": "#",
+            "link_text": "Read More",
+            "icon": "play",
+            "icon_align": "left"
+        }
+    },
+    "templates": {
+        "render": "./templates/template.php",
+        "content": "./templates/content.php"
+    },
+    "fields": {
+        "title": {
+            "label": "Title",
+            "source": true
+        },
+        "meta": {
+            "label": "Meta",
+            "source": true
+        },
+        "content": {
+            "label": "Content",
+            "type": "editor",
+            "source": true
+        },
+        "image": {
+            "label": "Image",
+            "type": "image",
+            "source": true
+        },
+        "image_alt": {
+            "label": "Image Alt",
+            "enable": "image",
+            "source": true
+        },
+        "icon": {
+            "label": "Icon",
+            "description": "Instead of using a custom image, you can click on the pencil to pick an icon from the icon library.",
+            "type": "icon",
+            "source": true
+        },
+        "icon_align": {
+            "label": "Icon Alignment",
+            "description": "Choose the icon position.",
+            "type": "select",
+            "options": {
+                "Left": "left",
+                "Right": "right"
+            },
+            "enable": "icon"
+        },
+        "link": "${builder.link}",
+        "link_text": {
+            "label": "Link Text",
+            "description": "Enter the text for the link.",
+            "source": true,
+            "enable": "link"
+        },
+        "tags": {
+            "label": "Tags",
+            "description": "Enter a comma-separated list of tags, for example, <code>blue, white, black</code>.",
+            "source": true
+        },
+        "status": "${builder.statusItem}",
+        "source": "${builder.source}"
+
+    },
+    "fieldset": {
+        "default": {
+            "type": "tabs",
+            "fields": [
+                {
+                    "title": "Content",
+                    "fields": [
+                        "title",
+                        "meta",
+                        "content",
+                        "image",
+                        "image_alt",
+                        "icon",
+                        "icon_align",
+                        "link",
+                        "link_text",
+                        "tags"
+                    ]
+                },
+                "${builder.advancedItem}"
+            ]
+        }
+    }
+}
